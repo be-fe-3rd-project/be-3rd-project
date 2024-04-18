@@ -24,6 +24,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+
 //     MySQL JDBC Driver
 //    implementation 'com.mysql:mysql-connector-j:8.3.0'
 
@@ -58,4 +59,8 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('bootJar'){
+    mainClass = 'com.example.be3rdproject.Be3rdProjectApplication'
 }
