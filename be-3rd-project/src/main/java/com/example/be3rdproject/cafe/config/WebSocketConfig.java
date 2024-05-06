@@ -13,15 +13,14 @@ public class WebSocketConfig  implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chat") // WebSocket을 통해 연결할 수 있는 엔드포인트를 "/chat"으로 설정
+        registry.addEndpoint("/ws")     // WebSocket을 통해 연결할 수 있는 엔드포인트를 "/ws"으로 설정
                 .setAllowedOriginPatterns("*"); // 모든 도메인에서의 접근을 허용
+        // 주소 : ws://localhost:8080/ws
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic");
-        // 메시지 브로커가 구독 관리를 위해 사용할 prefix를 "/topic"으로 설정 클라이언트가 이 prefix를 사용하여 메시지를 구독하면 메시지 브로커가 해당 메시지를 구독자에게 전달
-        registry.setApplicationDestinationPrefixes("/app");
-        // 클라이언트에서 메시지를 발송할 때 사용할 prefix를 "/app"으로 설정
+        registry.setApplicationDestinationPrefixes("/send");       //클라이언트에서 보낸 메세지를 받을 prefix
+        registry.enableSimpleBroker("/room");    //해당 주소를 구독하고 있는 클라이언트들에게 메세지 전달
     }
 }
