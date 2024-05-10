@@ -3,7 +3,7 @@ run-name: Running
 on:
   push:
     branches:
-      - main
+      - Develop_server
       - 'releases/**'
 
 env:
@@ -16,7 +16,7 @@ jobs:
   build-with-gradle:
     runs-on: ubuntu-20.04
     steps:
-    - name: main 브랜치로 이동
+    - name: Develop_server 브랜치로 이동
       uses: actions/checkout@v3
       with:
         ref: main
