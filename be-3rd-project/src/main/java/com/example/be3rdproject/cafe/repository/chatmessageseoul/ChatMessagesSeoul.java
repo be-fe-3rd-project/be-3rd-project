@@ -20,10 +20,12 @@ import java.time.LocalDateTime;
 public class ChatMessagesSeoul {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String content;
-    private String sender;
 
-    @CreatedDate
-    private LocalDateTime timestamp;
+    private Long id;
+    @Column (name ="content")
+    private String content;
+    @Column (name="senderId")
+    private String senderId; // senderId 추가
+    @Column (name = "timestamp")
+    private LocalDateTime timestamp; // DATETIME에서 TIMESTAMP로 변경
 }
