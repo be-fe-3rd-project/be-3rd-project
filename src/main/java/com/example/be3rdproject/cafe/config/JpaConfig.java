@@ -1,4 +1,4 @@
-package com.example.be3rdproject.cafe.config;
+package java.com.example.be3rdproject.cafe.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

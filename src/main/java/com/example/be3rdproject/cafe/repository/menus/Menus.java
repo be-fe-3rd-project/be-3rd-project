@@ -1,4 +1,4 @@
-package com.example.be3rdproject.cafe.repository.menus;
+package java.com.example.be3rdproject.cafe.repository.menus;
 import com.example.be3rdproject.cafe.repository.cafes.Cafes;
 import com.example.be3rdproject.cafe.repository.menus.Menus;
 import jakarta.persistence.*;

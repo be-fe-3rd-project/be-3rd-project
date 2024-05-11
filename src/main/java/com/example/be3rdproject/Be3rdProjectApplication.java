@@ -1,4 +1,4 @@
-package com.example.be3rdproject;
+package java.com.example.be3rdproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
