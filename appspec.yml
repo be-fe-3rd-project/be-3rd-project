@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source:  /
-    destination: /home/ec2-user/spring
+    destination: /home/ec2-user/spring             # 내 ec2 위치
     overwrite: yes
 
 permissions:
