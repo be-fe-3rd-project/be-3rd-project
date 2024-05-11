@@ -63,4 +63,6 @@ public class Cafes {
     @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL)
     private List<Menus> menus;
 
+    //test용 커밋
+
 }
