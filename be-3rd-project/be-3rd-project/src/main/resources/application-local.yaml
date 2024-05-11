@@ -6,7 +6,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-    static-path-pattern: /static/**
   datasource:
     username: ${DATABASE_USERNAME} # 환경변수에 설정함 DATABASE_USERNAME=root;
     password: ${DATABASE_PASSWORD} # 환경변수에 설정함 DATABASE_PASSWORD= *****;
@@ -30,4 +29,3 @@ logging:
     org.hibernate.type: ERROR
     org.hibernate.type.descriptor.sql: ERROR
     org.hibernate.stat: ERROR
-
