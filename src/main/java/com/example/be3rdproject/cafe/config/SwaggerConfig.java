@@ -1,4 +1,4 @@
-package java.com.example.be3rdproject.cafe.config;
+package com.example.be3rdproject.cafe.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

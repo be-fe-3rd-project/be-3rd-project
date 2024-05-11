@@ -1,6 +1,6 @@
-package java.com.example.be3rdproject.cafe.repository.cafes;
+package com.example.be3rdproject.cafe.repository.cafes;
 
-import java.com.example.be3rdproject.cafe.repository.menus.Menus;
+import com.example.be3rdproject.cafe.repository.menus.Menus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

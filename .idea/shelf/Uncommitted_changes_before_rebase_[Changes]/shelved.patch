@@ -1,0 +1,73 @@
+Index: src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package java.com.example.be3rdproject.cafe.repository.cafes;\r\n\r\nimport java.com.example.be3rdproject.cafe.repository.menus.Menus;\r\nimport jakarta.persistence.*;\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Getter;\r\nimport lombok.NoArgsConstructor;\r\nimport lombok.Setter;\r\nimport java.util.List;\r\n\r\n@Entity\r\n@Getter\r\n@Setter\r\n@AllArgsConstructor\r\n@NoArgsConstructor\r\n@Table(name = \"Cafes\")\r\npublic class Cafes {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @Column(name = \"cafe_id\")\r\n    private Integer cafeId;\r\n\r\n    @Column(name = \"cafe_name\", length = 45)\r\n    private String cafeName;\r\n\r\n    @Column(name = \"cafe_address\", length = 500)\r\n    private String cafeAddress;\r\n\r\n    @Column(name = \"cafe_phone\", length = 20)\r\n    private String cafePhone;\r\n\r\n    @Column(name = \"cafe_time\", length = 20)\r\n    private String cafeTime;\r\n\r\n    @Column(name = \"cafe_score\")\r\n    private Float cafeScore;\r\n\r\n    @Column(name = \"cafe_category\", length = 20)\r\n    private String cafeCategory;\r\n\r\n    @Column(name = \"cafe_area\", length = 20)\r\n    private String cafeArea;\r\n\r\n    @Column(name = \"cafe_parking\")\r\n    private Boolean cafeParking;\r\n\r\n    @Column(name = \"cafe_wifi\")\r\n    private Boolean cafeWifi;\r\n\r\n    @Column(name = \"cafe_animal\")\r\n    private Boolean cafeAnimal;\r\n\r\n    @Column(name = \"cafe_thumb\", length = 225)\r\n    private String cafeThumb;\r\n\r\n    @Column(name = \"cafe_holiday\", length = 20)\r\n    private String cafeHoliday;\r\n\r\n    @Column(name = \"review_count\")\r\n    private Integer reviewCount;\r\n\r\n    @OneToMany(mappedBy = \"cafe\", cascade = CascadeType.ALL)\r\n    private List<Menus> menus;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java b/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java
+--- a/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java	(revision 81f82177bdcf65956da0579db2fb346953990145)
++++ b/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java	(date 1715424515778)
+@@ -1,6 +1,6 @@
+-package java.com.example.be3rdproject.cafe.repository.cafes;
++package com.example.be3rdproject.cafe.repository.cafes;
+ 
+-import java.com.example.be3rdproject.cafe.repository.menus.Menus;
++import com.example.be3rdproject.cafe.repository.menus.Menus;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Getter;
+Index: src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package java.com.example.be3rdproject.cafe.repository.menus;\r\nimport com.example.be3rdproject.cafe.repository.cafes.Cafes;\r\nimport com.example.be3rdproject.cafe.repository.menus.Menus;\r\nimport jakarta.persistence.*;\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Getter;\r\nimport lombok.NoArgsConstructor;\r\nimport lombok.Setter;\r\nimport java.util.List;\r\n\r\n@Entity\r\n@Getter\r\n@Setter\r\n@AllArgsConstructor\r\n@NoArgsConstructor\r\n@Table(name = \"Menus\")\r\npublic class Menus {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @Column(name = \"menu_id\")\r\n    private Integer menuId;\r\n\r\n    @Column(name = \"menu_name\", length = 45)\r\n    private String menuName;\r\n\r\n    @Column(name = \"menu_price\", length = 20)\r\n    private String menuPrice;\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"cafe_id\", nullable = false)\r\n    private Cafes cafe;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java b/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java
+--- a/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java	(revision 81f82177bdcf65956da0579db2fb346953990145)
++++ b/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java	(date 1715424515786)
+@@ -1,6 +1,7 @@
+-package java.com.example.be3rdproject.cafe.repository.menus;
++package com.example.be3rdproject.cafe.repository.menus;
++
++
+ import com.example.be3rdproject.cafe.repository.cafes.Cafes;
+-import com.example.be3rdproject.cafe.repository.menus.Menus;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Getter;
+Index: src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package java.com.example.be3rdproject;\r\n\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\n\r\n@SpringBootApplication\r\npublic class Be3rdProjectApplication {\r\n\r\n    public static void main(String[] args) {\r\n        SpringApplication.run(Be3rdProjectApplication.class, args);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java b/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java
+--- a/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java	(revision 81f82177bdcf65956da0579db2fb346953990145)
++++ b/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java	(date 1715424569490)
+@@ -1,4 +1,4 @@
+-package java.com.example.be3rdproject;
++package com.example.be3rdproject;
+ 
+ import org.springframework.boot.SpringApplication;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
+Index: src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package java.com.example.be3rdproject.cafe.repository.menus;\r\n\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\nimport org.springframework.stereotype.Repository;\r\n\r\n@Repository\r\npublic interface MenusJpaRepository extends JpaRepository<Menus,Integer> {\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java b/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java
+--- a/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java	(revision 81f82177bdcf65956da0579db2fb346953990145)
++++ b/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java	(date 1715424515769)
+@@ -1,5 +1,6 @@
+-package java.com.example.be3rdproject.cafe.repository.menus;
++package com.example.be3rdproject.cafe.repository.menus;
+ 
++import com.example.be3rdproject.cafe.repository.menus.Menus;
+ import org.springframework.data.jpa.repository.JpaRepository;
+ import org.springframework.stereotype.Repository;
+ 
