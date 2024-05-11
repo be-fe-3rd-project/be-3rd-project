@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed88e905-120a-4951-b9bc-f89c1908a8f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/AuditingConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoul.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoulRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatControllerSeoul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/Be3rdProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/menus/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/menus/MenusJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/test1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/CICD.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +264,7 @@
       <workItem from="1715409428715" duration="1218000" />
       <workItem from="1715414004849" duration="5061000" />
       <workItem from="1715419277010" duration="4268000" />
-      <workItem from="1715424737790" duration="914000" />
+      <workItem from="1715424737790" duration="1237000" />
     </task>
     <task id="LOCAL-00001" summary="4.24 web config,webSocketConfig, websocket 의존성 추가">
       <option name="closed" value="true" />
