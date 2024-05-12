@@ -9,8 +9,8 @@ on:
 env:
   AWS_REGION: us-east-1
   AWS_S3_BUCKET: carter-github-actions-s3-bucket
-  AWS_CODE_DEPLOY_APPLICATION: carter-github-actions-s3-bucket
-  AWS_CODE_DEPLOY_GROUP: carter-github-actions-s3-bucket-group
+  AWS_CODE_DEPLOY_APPLICATION: carter-codedeploy-app
+  AWS_CODE_DEPLOY_GROUP: carter-codedeploy-app-cicd-group
 
 jobs:
   build-with-gradle:
