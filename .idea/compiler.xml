@@ -11,5 +11,6 @@
         <module name="b3-3rd-project.be-3rd-project.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
   </component>
 </project>
