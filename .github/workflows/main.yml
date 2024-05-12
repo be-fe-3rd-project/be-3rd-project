@@ -7,10 +7,10 @@ on:
       - 'releases/**'
 
 env:
-  AWS_REGION: us-east-1                                           #S3 리전 지역
-  AWS_S3_BUCKET: carter-github-actions-s3-bucket                  #S3 버킷 이름
-  AWS_CODE_DEPLOY_APPLICATION: carter-codedeploy-app              #Codedeploy 이름
-  AWS_CODE_DEPLOY_GROUP: carter-codedeploy-app-cicd-group         #Codedeploy 그룹이름
+  AWS_REGION: us-east-1
+  AWS_S3_BUCKET: carter-github-actions-s3-bucket
+  AWS_CODE_DEPLOY_APPLICATION: carter-github-actions-s3-bucket
+  AWS_CODE_DEPLOY_GROUP: carter-github-actions-s3-bucket-group
 
 jobs:
   build-with-gradle:
