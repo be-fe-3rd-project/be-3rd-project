@@ -23,7 +23,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:3.141.59'
 
 //     MySQL JDBC Driver
 //    implementation 'com.mysql:mysql-connector-j:8.3.0'
