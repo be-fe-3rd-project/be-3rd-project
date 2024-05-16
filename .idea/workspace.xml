@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="88bef105-5d9f-4dad-a50f-03d30cdf0183" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/config/WebConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +227,7 @@
       <workItem from="1715861829888" duration="2682000" />
       <workItem from="1715864875937" duration="711000" />
       <workItem from="1715866281497" duration="880000" />
+      <workItem from="1715867174186" duration="1045000" />
     </task>
     <task id="LOCAL-00001" summary="4.24 web config,webSocketConfig, websocket 의존성 추가">
       <option name="closed" value="true" />
