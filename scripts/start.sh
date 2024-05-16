@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ROOT_PATH="/home/ec2-user/spring"
-JAR="$ROOT_PATH/build/libs/be-3rd-project-0.0.1-SNAPSHOT.jar" # 수정된 경로
+JAR="$ROOT_PATH/build/libs/be-3rd-project-0.0.1-SNAPSHOT.jar"
 APP_LOG="$ROOT_PATH/application.log"
 ERROR_LOG="$ROOT_PATH/error.log"
 START_LOG="$ROOT_PATH/start.log"
