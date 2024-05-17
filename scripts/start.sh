@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_PATH="/home/ec2-user/spring"
+ROOT_PATH="/home/ec2-user/spring/be-3rd-project"
 JAR="$ROOT_PATH/build/libs/be-3rd-project-0.0.1-SNAPSHOT.jar"
 APP_LOG="$ROOT_PATH/application.log"
 ERROR_LOG="$ROOT_PATH/error.log"
