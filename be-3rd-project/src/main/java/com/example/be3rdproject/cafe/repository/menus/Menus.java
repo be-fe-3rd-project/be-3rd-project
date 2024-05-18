@@ -1,16 +1,11 @@
 package com.example.be3rdproject.cafe.repository.menus;
 import com.example.be3rdproject.cafe.repository.cafes.Cafes;
-import com.example.be3rdproject.cafe.repository.menus.Menus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import java.util.List;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Menus")
@@ -29,5 +24,4 @@ public class Menus {
     @ManyToOne
     @JoinColumn(name = "cafe_id", nullable = false)
     private Cafes cafe;
-
 }
