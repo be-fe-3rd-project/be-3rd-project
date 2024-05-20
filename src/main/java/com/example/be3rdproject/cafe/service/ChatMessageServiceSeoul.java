@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class ChatMessageServiceSeoul {
-
     private final ChatMessagesSeoulRepository chatMessagesSeoulRepository;
     private final SimpMessagingTemplate messagingTemplate;
 
@@ -26,7 +25,6 @@ public class ChatMessageServiceSeoul {
                 .senderId(messageDto.getSenderId())
                 .message(messageDto.getMessage())
                 .build();
-
         chatMessagesSeoulRepository.save(message);
     }
 

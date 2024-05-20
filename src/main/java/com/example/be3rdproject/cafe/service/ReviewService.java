@@ -16,24 +16,20 @@ import java.util.stream.Collectors;
 public class ReviewService {
 
     private final ReviewJpaRepository reviewJpaRepository;
-
     public List<ReviewDto> findAllReviews() {
         return reviewJpaRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
     }
     public Optional<ReviewDto> findReviewById(Long id) {
         return reviewJpaRepository.findById(id).map(this::convertToDTO);
     }
-
     public ReviewDto saveReview(ReviewDto reviewDTO) {
         Review review = convertToEntity(reviewDTO);
         Review savedReview = reviewJpaRepository.save(review);
         return convertToDTO(savedReview);
     }
-
     public void deleteReview(Long id) {
         reviewJpaRepository.deleteById(id);
     }
-
     private ReviewDto convertToDTO(Review review) {
         ReviewDto reviewDTO = new ReviewDto();
         reviewDTO.setId(review.getReviewId());
@@ -41,7 +37,6 @@ public class ReviewService {
         reviewDTO.setReviewScore(review.getReviewScore());
         return reviewDTO;
     }
-
     private Review convertToEntity(ReviewDto reviewDTO) {
         Review review = new Review();
         review.setReviewContent(reviewDTO.getReviewContent());
