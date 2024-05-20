@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88bef105-5d9f-4dad-a50f-03d30cdf0183" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-05-12__9_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-05-12__9_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/config/AuditingConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/config/WebConfig$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoul.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoul.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/web/controller/ChatControllerSeoul.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/web/controller/ChatControllerSeoul.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/java/com/example/be3rdproject/cafe/dto/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ChatMessageSeoulDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ChatMessageSeoulDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ReviewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/chatmessageseoul/ChatMessagesSeoul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/ReviewJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/ReviewJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatControllerSeoul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatControllerSeoul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatJejuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatJejuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ReviewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +66,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="origin/serverdistribution" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

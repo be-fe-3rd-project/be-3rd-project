@@ -6,20 +6,27 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class ChatMessageServiceSeoul {
 
     private final ChatMessagesSeoulRepository chatMessagesSeoulRepository;
+    private final SimpMessagingTemplate messagingTemplate;
 
     public Page<ChatMessagesSeoul> getMessagesByPage(Pageable pageable) {
         return chatMessagesSeoulRepository.findAllByOrderByTimestampDesc(pageable);
     }
+    @Transactional
+    public void saveMessage(ChatMessagesSeoul messageDto) {
+        ChatMessagesSeoul message = ChatMessagesSeoul.builder()
+                .senderId(messageDto.getSenderId())
+                .message(messageDto.getMessage())
+                .build();
 
-    public void saveMessage(ChatMessagesSeoul message) {
         chatMessagesSeoulRepository.save(message);
     }
 
