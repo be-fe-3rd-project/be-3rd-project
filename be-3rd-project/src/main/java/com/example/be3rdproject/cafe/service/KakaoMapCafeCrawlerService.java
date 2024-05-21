@@ -52,7 +52,17 @@ public class KakaoMapCafeCrawlerService {
         try {
             navigateToSearchPage();
             Thread.sleep(2000);
-            collectDataFromCurrentPage();
+
+            // 페이지 넘기면서 크롤링
+            for (int pageNum = 1; pageNum <= 20; pageNum++) {
+                log.info("현재페이지: {}", pageNum);
+                collectDataFromCurrentPage();
+                if (pageNum % 5 == 0) { // 5의 배수마다 다음 페이지
+                    clickNextButton();
+                } else {
+                    clickPageButton(pageNum); // 아니면 다음 번호 클릭
+                }
+            }
         } catch (WebDriverException e) {
             log.error("웹드라이버 오류: {}", e.getMessage());
         } catch (InterruptedException e) {
@@ -98,6 +108,21 @@ public class KakaoMapCafeCrawlerService {
         // DB에 저장
         cafesJpaRepository.saveAll(cafeList);
         menusJpaRepository.saveAll(menuList);
+    }
+
+    private void clickPageButton(int pageNum) throws InterruptedException {
+        int buttonNum = pageNum % 5;
+        WebElement pageButton =
+                driver.findElement(By.id(String.format("info.search.page.no%d", buttonNum + 1)));
+        pageButton.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
+    }
+
+    private void clickNextButton() throws InterruptedException {
+        WebElement nextButton =
+                driver.findElement(By.id("info.search.page.next"));
+        nextButton.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
     }
 
     private Cafes extractCafeInfo(WebElement cafeElement, List<Menus> menuList) {
@@ -158,6 +183,13 @@ public class KakaoMapCafeCrawlerService {
                     try {
                         String menuName = getElementText(menuElement, By.cssSelector(".loss_word"));
                         String menuPrice = getElementText(menuElement, By.cssSelector(".price_menu"));
+
+                        // 메뉴 이름의 길이 검사
+                        if (menuName.length() > 50) {
+                            log.warn("메뉴 이름 길이 초과.: {}", menuName);
+                            menuName = menuName.substring(0, 255); // 길이를 초과하면 잘라냄
+                        }
+
                         Menus menu = Menus.builder()
                                 .menuName(menuName)
                                 .menuPrice(menuPrice)
@@ -187,7 +219,7 @@ public class KakaoMapCafeCrawlerService {
             WebElement element = parent.findElement(by);
             return element.getText();
         } catch (NoSuchElementException e) {
-            log.warn("Element not found: {}", by);
+            log.warn("요소를 찾을 수 없음.: {}", by);
             return "";
         }
     }
