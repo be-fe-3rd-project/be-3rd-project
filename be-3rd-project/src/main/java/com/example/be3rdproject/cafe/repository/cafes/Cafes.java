@@ -32,7 +32,7 @@ public class Cafes {
     private Float cafeScore;
 
     @Column(name = "opening_hours")
-    private String  openingHours;
+    private String openingHours;
 
     @Column(name = "cafe_category", length = 20)
     private String cafeCategory;

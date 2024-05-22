@@ -5,6 +5,7 @@ import com.example.be3rdproject.cafe.repository.cafes.CafesJpaRepository;
 import com.example.be3rdproject.cafe.repository.menus.Menus;
 import com.example.be3rdproject.cafe.repository.menus.MenusJpaRepository;
 import jakarta.annotation.PostConstruct;
+import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -142,7 +143,7 @@ public class KakaoMapCafeCrawlerService {
                     .openingHours(openingHours)
                     .build();
 
-            extractMenuInfo(cafeElement, cafe, menuList);
+            extractDetailInfo(cafeElement, cafe, menuList);
 
             return cafe;
         } catch (NoSuchElementException e) {
@@ -151,7 +152,7 @@ public class KakaoMapCafeCrawlerService {
         }
     }
 
-    private void extractMenuInfo(WebElement cafeElement, Cafes cafe, List<Menus> menuList) {
+    private void extractDetailInfo(WebElement cafeElement, Cafes cafe, List<Menus> menuList) {
         String originalWindow = driver.getWindowHandle();
 
         try {
@@ -169,6 +170,15 @@ public class KakaoMapCafeCrawlerService {
 
             driver.switchTo().window(newWindow);
             Thread.sleep(2000);
+
+            // 시설 정보 추출
+            Boolean wifi = hasFacility("ico_wifi");
+            Boolean animal = hasFacility("ico_animal");
+            Boolean parking = hasFacility("ico_parking");
+
+            cafe.setCafeWifi(wifi);
+            cafe.setCafeAnimal(animal);
+            cafe.setCafeParking(parking);
 
             // 메뉴 더보기 클릭 시도
             try {
@@ -234,6 +244,16 @@ public class KakaoMapCafeCrawlerService {
         } catch (NumberFormatException e) {
             log.error("Score parse 오류: {}", scoreString);
             return null;
+        }
+    }
+
+    private Boolean hasFacility(String facilityClass) {
+        try {
+            WebElement facilityElement =
+                    driver.findElement(By.cssSelector("ul.list_facility li span." + facilityClass));
+            return facilityElement != null;
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 }
