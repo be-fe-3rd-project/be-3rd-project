@@ -20,7 +20,7 @@ public class ChatJejuController {
     private final ChatJejuService chatJejuService;
 
     @GetMapping("")
-    @Operation(summary = "서울 채팅 전체 내용 조회")
+    @Operation(summary = "제주 채팅 전체 내용 조회")
     public Page<ChatJeju> getMessages(@PageableDefault(size = 20) Pageable pageable) {
         return chatJejuService.getMessagesByPage(pageable);
     }

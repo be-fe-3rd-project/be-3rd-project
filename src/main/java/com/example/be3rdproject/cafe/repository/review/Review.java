@@ -1,5 +1,6 @@
 package com.example.be3rdproject.cafe.repository.review;
 
+import com.example.be3rdproject.cafe.repository.cafes.Cafes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,13 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_id")
     private Long reviewId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cafe_id")
+    private Cafes cafe;
+
+    @Column(name="reviewer_name")
+    private String reviewerName;
 
     @Lob
     @Column(name = "review_content ")

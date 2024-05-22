@@ -1,6 +1,7 @@
 package com.example.be3rdproject.cafe.repository.cafes;
 
 import com.example.be3rdproject.cafe.repository.menus.Menus;
+import com.example.be3rdproject.cafe.repository.review.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +30,6 @@ public class Cafes {
 
     @Column(name = "cafe_phone", length = 20)
     private String cafePhone;
-
-    @Column(name = "cafe_time", length = 20)
-    private String cafeTime;
 
     @Column(name = "cafe_score")
     private Float cafeScore;
@@ -62,5 +60,8 @@ public class Cafes {
 
     @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL)
     private List<Menus> menus;
+
+    @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
 }

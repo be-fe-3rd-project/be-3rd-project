@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88bef105-5d9f-4dad-a50f-03d30cdf0183" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-05-12__9_00__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-05-12_오후_9_00_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/cafes/Cafes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/cafes/Cafes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/service/ChatMessageServiceSeoul.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/dto/ReviewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/Cafes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/cafes/CafesJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/repository/review/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatJejuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ChatJejuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/be3rdproject/cafe/web/controller/ReviewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,6 +249,8 @@
       <workItem from="1715867174186" duration="1045000" />
       <workItem from="1715868303386" duration="1069000" />
       <workItem from="1715953199250" duration="3664000" />
+      <workItem from="1716287099564" duration="10371000" />
+      <workItem from="1716380209718" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="4.24 web config,webSocketConfig, websocket 의존성 추가">
       <option name="closed" value="true" />

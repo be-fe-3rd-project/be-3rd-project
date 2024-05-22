@@ -1,19 +1,18 @@
 package com.example.be3rdproject.cafe.web.controller;
 
 import com.example.be3rdproject.cafe.dto.ReviewDto;
-import com.example.be3rdproject.cafe.repository.review.Review;
 import com.example.be3rdproject.cafe.service.ReviewService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/reviews")
 @RequiredArgsConstructor
-@Slf4j
 public class ReviewController {
     private final ReviewService reviewService;
 
@@ -25,10 +24,10 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     @Operation(summary = "id로 특정 리뷰 조회")
-    public ReviewDto getReviewById(@PathVariable Long id) {
-        return reviewService.findReviewById(id).orElse(null);
+    public ResponseEntity<ReviewDto> getReviewById(@PathVariable("id") Long id) {
+        Optional<ReviewDto> reviewDto = reviewService.findReviewById(id);
+        return reviewDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-
     @PostMapping
     @Operation(summary = "리뷰 생성")
     public ReviewDto createReview(@RequestBody ReviewDto reviewDTO) {
@@ -37,20 +36,18 @@ public class ReviewController {
 
     @PutMapping("/{id}")
     @Operation(summary = "id로 특정 리뷰 업데이트")
-    public ReviewDto updateReview(@PathVariable Long id, @RequestBody ReviewDto reviewDetails) {
-        ReviewDto review = reviewService.findReviewById(id).orElse(null);
-        if (review != null) {
-            review.setReviewContent(reviewDetails.getReviewContent());
-            review.setReviewScore(reviewDetails.getReviewScore());
-            return reviewService.saveReview(review);
+    public ResponseEntity<ReviewDto> updateReview(@PathVariable("id") Long id, @RequestBody ReviewDto reviewDetails) {
+        try {
+            ReviewDto updatedReview = reviewService.updateReview(id, reviewDetails);
+            return ResponseEntity.ok(updatedReview);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "id로 특정 리뷰 삭제")
-    public void deleteReview(@PathVariable Long id) {
+    public void deleteReview(@PathVariable("id") Long id) {
         reviewService.deleteReview(id);
     }
-
 }

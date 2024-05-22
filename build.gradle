@@ -69,3 +69,7 @@ tasks.named('test') {
 tasks.named('bootJar'){
     mainClass = 'com.example.be3rdproject.Be3rdProjectApplication'
 }
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
