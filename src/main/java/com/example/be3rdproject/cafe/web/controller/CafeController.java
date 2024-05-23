@@ -37,7 +37,10 @@ public class CafeController {
     }
 
     @GetMapping("/address")
-    @Operation(summary = "리뷰 수가 많은 순으로 카페 조회")
+    @Operation(summary = "각 구에 해당하는 카페 조회  ex) address?address=성동구 " +
+            "성동구,영등포구,강남구,강동구,마포구,종로구,중구,노원구,성북구,용산구,서초구\n" +
+            "마포구,송파구,동작구,구로구,서대문구,광진구,은평구 ")
+
     public ResponseEntity<List<CafeDto>> getCafeByAddress(@RequestParam("address") String address) {
         List<CafeDto> cafes = cafeService.findCafesByAddress(address);
         if (cafes.isEmpty()) {
