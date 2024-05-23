@@ -63,8 +63,8 @@ public class Cafes {
     @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviews;
 
-    public void incrementReviewCount() {
-        this.reviewCount++;
-    }
+//    public void incrementReviewCount() {
+//        this.reviewCount++;
+//    }
 
 }

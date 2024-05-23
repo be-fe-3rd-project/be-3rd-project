@@ -8,6 +8,7 @@ import com.example.be3rdproject.cafe.repository.review.ReviewJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -29,16 +30,18 @@ public class ReviewService {
         return reviewJpaRepository.findById(id).map(this::convertToDTO);
     }
 
+    @Transactional
     public ReviewDto saveReview(ReviewDto reviewDTO) {
         Optional<Cafes> cafeOptional = cafesJpaRepository.findById(reviewDTO.getCafeId());
         if (!cafeOptional.isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다");
         }
         Cafes cafe = cafeOptional.get();
-        // 리뷰 카운트를 1 증가시킴
-        cafe.incrementReviewCount();
+//        // 리뷰 카운트를 1 증가시킴
+//        cafe.incrementReviewCount();
         // 카페 정보 업데이트
         cafesJpaRepository.save(cafe);
+        cafesJpaRepository.incrementReviewCountByCafeId(reviewDTO.getCafeId());
 
         Review review = convertToEntity(reviewDTO);
         review.setCafe(cafe);

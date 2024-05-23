@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88bef105-5d9f-4dad-a50f-03d30cdf0183" name="Changes" comment="" />
+    <list default="true" id="88bef105-5d9f-4dad-a50f-03d30cdf0183" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/web/controller/CafeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/example/be3rdproject/cafe/web/controller/CafeController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +233,7 @@
       <workItem from="1715953199250" duration="3664000" />
       <workItem from="1716287099564" duration="10371000" />
       <workItem from="1716380209718" duration="7254000" />
-      <workItem from="1716455199395" duration="9474000" />
+      <workItem from="1716455199395" duration="11103000" />
     </task>
     <task id="LOCAL-00001" summary="4.24 web config,webSocketConfig, websocket 의존성 추가">
       <option name="closed" value="true" />
