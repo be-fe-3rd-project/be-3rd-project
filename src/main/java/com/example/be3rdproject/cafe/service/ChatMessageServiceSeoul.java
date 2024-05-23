@@ -26,6 +26,8 @@ public class ChatMessageServiceSeoul {
                 .message(messageDto.getMessage())
                 .build();
         chatMessagesSeoulRepository.save(message);
+
+        messagingTemplate.convertAndSend("send/chat/message", messageDto);
     }
 
 

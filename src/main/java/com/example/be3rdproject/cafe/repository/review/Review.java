@@ -2,16 +2,14 @@ package com.example.be3rdproject.cafe.repository.review;
 
 import com.example.be3rdproject.cafe.repository.cafes.Cafes;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Reviews")

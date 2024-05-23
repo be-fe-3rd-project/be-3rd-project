@@ -3,15 +3,14 @@ package com.example.be3rdproject.cafe.repository.cafes;
 import com.example.be3rdproject.cafe.repository.menus.Menus;
 import com.example.be3rdproject.cafe.repository.review.Review;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Cafes")
@@ -20,7 +19,7 @@ public class Cafes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cafe_id")
-    private Integer cafeId;
+    private Long cafeId;
 
     @Column(name = "cafe_name", length = 45)
     private String cafeName;
@@ -58,10 +57,14 @@ public class Cafes {
     @Column(name = "review_count")
     private Integer reviewCount;
 
-    @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL)
-    private List<Menus> menus;
+    @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
+    private List<Menus> menuList;
 
     @OneToMany(mappedBy = "cafe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviews;
+
+    public void incrementReviewCount() {
+        this.reviewCount++;
+    }
 
 }
