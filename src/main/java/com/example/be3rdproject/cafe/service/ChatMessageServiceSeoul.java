@@ -11,25 +11,36 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ChatMessageServiceSeoul {
     private final ChatMessagesSeoulRepository chatMessagesSeoulRepository;
     private final SimpMessagingTemplate messagingTemplate;
 
     public Page<ChatMessagesSeoul> getMessagesByPage(Pageable pageable) {
-        return chatMessagesSeoulRepository.findAllByOrderByTimestampDesc(pageable);
+        try {
+            return chatMessagesSeoulRepository.findAllByOrderByTimestampDesc(pageable);
+        } catch (Exception e) {
+            log.error("페이지별로 메시지를 검색하는 중 오류 발생", e);
+            throw new RuntimeException("메시지를 검색하지 못했습니다", e);
+        }
     }
+
     @Transactional
     public void saveMessage(ChatMessagesSeoul messageDto) {
-        ChatMessagesSeoul message = ChatMessagesSeoul.builder()
-                .senderId(messageDto.getSenderId())
-                .message(messageDto.getMessage())
-                .build();
-        chatMessagesSeoulRepository.save(message);
+        try {
+            ChatMessagesSeoul message = ChatMessagesSeoul.builder()
+                    .senderId(messageDto.getSenderId())
+                    .message(messageDto.getMessage())
+                    .build();
+            chatMessagesSeoulRepository.save(message);
 
-        messagingTemplate.convertAndSend("send/chat/message", messageDto);
+            messagingTemplate.convertAndSend("send/chat/message", messageDto);
+        } catch (Exception e) {
+            log.error("메시지 저장 중 오류 발생", e);
+            throw new RuntimeException("메시지를 저장하지 못했습니다", e);
+        }
     }
-
 
 
 }

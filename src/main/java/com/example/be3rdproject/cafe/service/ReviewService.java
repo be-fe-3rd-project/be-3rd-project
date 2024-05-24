@@ -5,6 +5,7 @@ import com.example.be3rdproject.cafe.repository.cafes.Cafes;
 import com.example.be3rdproject.cafe.repository.cafes.CafesJpaRepository;
 import com.example.be3rdproject.cafe.repository.review.Review;
 import com.example.be3rdproject.cafe.repository.review.ReviewJpaRepository;
+import com.example.be3rdproject.cafe.web.error.ReviewNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,16 +28,15 @@ public class ReviewService {
     }
 
     public Optional<ReviewDto> findReviewById(Long id) {
-        return reviewJpaRepository.findById(id).map(this::convertToDTO);
+        return Optional.ofNullable(reviewJpaRepository.findById(id)
+                .map(this::convertToDTO)
+                .orElseThrow(() -> new ReviewNotFoundException("이 ID에 대한 리뷰를 찾을 수 없습니다 :: " + id)));
     }
 
     @Transactional
     public ReviewDto saveReview(ReviewDto reviewDTO) {
-        Optional<Cafes> cafeOptional = cafesJpaRepository.findById(reviewDTO.getCafeId());
-        if (!cafeOptional.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다");
-        }
-        Cafes cafe = cafeOptional.get();
+        Cafes cafe = cafesJpaRepository.findById(reviewDTO.getCafeId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다"));
 
         // JPQL을 이용하여 리뷰 카운트 증가
         cafesJpaRepository.incrementReviewCountByCafeId(reviewDTO.getCafeId());
@@ -45,31 +45,36 @@ public class ReviewService {
         Review review = convertToEntity(reviewDTO);
         review.setCafe(cafe);
         Review savedReview = reviewJpaRepository.save(review);
+
         return convertToDTO(savedReview);
     }
 
 
+    @Transactional
     public void deleteReview(Long id) {
+        if (!reviewJpaRepository.existsById(id)) {
+            throw new ReviewNotFoundException("이 ID에 대한 리뷰를 찾을 수 없습니다 :: " + id);
+        }
         reviewJpaRepository.deleteById(id);
     }
 
+    @Transactional
     public ReviewDto updateReview(Long id, ReviewDto reviewDTO) {
         Review review = reviewJpaRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "이 ID에 대한 리뷰를 찾을 수 없습니다 :: " + id));
+                .orElseThrow(() -> new ReviewNotFoundException("이 ID에 대한 리뷰를 찾을 수 없습니다 :: " + id));
 
-        Optional<Cafes> cafe = cafesJpaRepository.findById(reviewDTO.getCafeId());
-        if (!cafe.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다");
-        }
+        Cafes cafe = cafesJpaRepository.findById(reviewDTO.getCafeId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다"));
 
         review.setReviewContent(reviewDTO.getReviewContent());
         review.setReviewScore(reviewDTO.getReviewScore());
         review.setReviewerName(reviewDTO.getReviewerName());
-        review.setCafe(cafe.get());
+        review.setCafe(cafe);
 
         Review updatedReview = reviewJpaRepository.save(review);
         return convertToDTO(updatedReview);
     }
+
 
     private ReviewDto convertToDTO(Review review) {
         return ReviewDto.builder()
@@ -89,8 +94,7 @@ public class ReviewService {
                 .build();
 
         // cafeId로 Cafes 엔티티를 찾아서 설정
-        Optional<Cafes> cafe = cafesJpaRepository.findById(reviewDTO.getCafeId());
-        cafe.ifPresent(review::setCafe);
+        cafesJpaRepository.findById(reviewDTO.getCafeId()).ifPresent(review::setCafe);
 
         return review;
     }
