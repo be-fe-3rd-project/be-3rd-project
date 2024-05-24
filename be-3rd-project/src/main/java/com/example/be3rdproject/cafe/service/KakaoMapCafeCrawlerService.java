@@ -42,7 +42,7 @@ public class KakaoMapCafeCrawlerService {
 
     private WebDriver createWebDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Headless 모드
+//        options.addArguments("--headless"); // Headless 모드
         options.addArguments("--disable-gpu"); // GPU 비활성화
         options.addArguments("--no-sandbox"); // 샌드박스 비활성화
         options.addArguments("--disable-dev-shm-usage"); // /dev/shm 사용 비활성화
@@ -52,7 +52,6 @@ public class KakaoMapCafeCrawlerService {
     public void crawlCafes() {
         try {
             navigateToSearchPage();
-            Thread.sleep(2000);
 
             // 페이지 넘기면서 크롤링
             for (int pageNum = 1; pageNum <= 20; pageNum++) {
@@ -89,7 +88,7 @@ public class KakaoMapCafeCrawlerService {
     private void collectDataFromCurrentPage() {
         // 검색 결과중 카페 리스트에서 모든 카페 요소 가져옴
         List<WebElement> cafes =
-                driver.findElements(By.cssSelector("#info\\.search\\.place\\.list > li"));
+                wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("#info\\.search\\.place\\.list > li"), 10));
 
         List<Cafes> cafeList = new ArrayList<>(); // 추출 정보 담을 리스트 생성
         List<Menus> menuList = new ArrayList<>();
