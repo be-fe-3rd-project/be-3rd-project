@@ -37,11 +37,10 @@ public class ReviewService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "제공된 카페ID가 존재 하지 않습니다");
         }
         Cafes cafe = cafeOptional.get();
-//        // 리뷰 카운트를 1 증가시킴
-//        cafe.incrementReviewCount();
-        // 카페 정보 업데이트
-        cafesJpaRepository.save(cafe);
+
+        // JPQL을 이용하여 리뷰 카운트 증가
         cafesJpaRepository.incrementReviewCountByCafeId(reviewDTO.getCafeId());
+        cafesJpaRepository.flush(); // 변경 내용을 즉시 반영
 
         Review review = convertToEntity(reviewDTO);
         review.setCafe(cafe);
