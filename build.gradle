@@ -59,7 +59,14 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
     implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.1'
 
+    // WebClient
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.20.0'
+
+    // Jsoup
+    implementation 'org.jsoup:jsoup:1.17.2'
 }
 
 tasks.named('test') {
